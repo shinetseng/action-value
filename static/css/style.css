@@ -1,0 +1,64 @@
+body {
+    font-family: 'Microsoft JhengHei', sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+h2 {
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="number"], input[type="text"], select, button {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #3498db;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease;
+}
+
+.date-input-group {
+    display: flex;
+    gap: 8px;
+}
+
+.date-input-group input,
+.date-input-group select {
+    flex: 1;
+    padding: 12px;
+    border: 2px solid #3498db;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease;
+}
+
+.date-input-group input:focus,
+.date-input-group select:focus {
+    outline: none;
+    border-color: #2980b9;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+.date-input-group input[type="number"] {
+    width: 100px;
+}
+
+.date-input-group select {
+    min-width: 80px;
+}

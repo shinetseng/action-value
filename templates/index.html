@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>命理分析系統</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <section id="user-input">
+        <h2>請輸入需求</h2>
+        <form id="query-form">
+            <div class="form-group">
+                <label>出生日期類型：</label>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="calendarType" value="solar" checked> 國曆
+                    </label>
+                    <label>
+                        <input type="radio" name="calendarType" value="lunar"> 農曆
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="birthdate">出生日期：</label>
+                <div class="date-input-group">
+                    <input type="number" id="birth-year" min="1900" max="2100" placeholder="年" required>
+                    <select id="birth-month" required>
+                        <option value="">月</option>
+                        <option value="1">1月</option>
+                        <option value="2">2月</option>
+                        <option value="3">3月</option>
+                        <option value="4">4月</option>
+                        <option value="5">5月</option>
+                        <option value="6">6月</option>
+                        <option value="7">7月</option>
+                        <option value="8">8月</option>
+                        <option value="9">9月</option>
+                        <option value="10">10月</option>
+                        <option value="11">11月</option>
+                        <option value="12">12月</option>
+                    </select>
+                    <select id="birth-day" required>
+                        <option value="">日</option>
+                        <!-- Days will be populated dynamically -->
+                    </select>
+                    <input type="hidden" id="birthdate" name="birthdate">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="country">出生國家：</label>
+                <select id="country" name="country" required>
+                    <option value="">請選擇...</option>
+                    <option value="TW">台灣</option>
+                    <option value="CN">中國</option>
+                    <option value="HK">香港</option>
+                    <option value="MO">澳門</option>
+                    <option value="other">其他</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="city">出生城市：</label>
+                <input type="text" id="city" name="city" required>
+            </div>
+
+            <div class="form-group">
+                <label for="question">您的目標或問題：</label>
+                <select id="question" name="question" required>
+                    <option value="">請選擇...</option>
+                    <option value="career">事業發展</option>
+                    <option value="relationship">感情問題</option>
+                    <option value="health">健康狀況</option>
+                    <option value="education">學業規劃</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="time-period">選擇時間段：</label>
+                <select id="time-period" name="time-period" required>
+                    <option value="">請選擇...</option>
+                    <option value="past5">過去5年</option>
+                    <option value="present1">現在1年</option>
+                    <option value="future5">未來5年</option>
+                </select>
+            </div>
+
+            <button type="submit">開始分析</button>
+        </form>
+    </section>
+
+    <section id="result" class="hidden">
+        <h2>分析結果</h2>
+        <div id="report-content"></div>
+    </section>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
