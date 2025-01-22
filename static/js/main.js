@@ -49,6 +49,9 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateDays() {
         const year = parseInt(birthYear.value);
         const month = parseInt(birthMonth.value);
+        
+        if (isNaN(year) || isNaN(month)) return;
+        
         const daysInMonth = new Date(year, month, 0).getDate();
         
         // 清空現有選項
@@ -58,8 +61,14 @@ document.addEventListener('DOMContentLoaded', function() {
         for (let day = 1; day <= daysInMonth; day++) {
             const option = document.createElement('option');
             option.value = day;
-            option.textContent = day;
+            option.textContent = day + '日';
             birthDay.appendChild(option);
+        }
+        
+        // 自動選擇第一個日期
+        if (daysInMonth > 0) {
+            birthDay.value = '1';
+            updateBirthdate();
         }
     }
 
