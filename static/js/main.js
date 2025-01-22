@@ -96,8 +96,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
     birthDay.addEventListener('change', updateBirthdate);
 
+    // 初始化日期選擇器
+    updateDays();
+    
     // 初始化時恢復表單狀態
     restoreFormState();
+    
+    // 確保日期選擇器初始值
+    if (!birthdate.value) {
+        const today = new Date();
+        birthYear.value = today.getFullYear();
+        birthMonth.value = today.getMonth() + 1;
+        updateDays();
+    }
 
     form.addEventListener('submit', async function(e) {
         e.preventDefault();
